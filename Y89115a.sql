@@ -20,6 +20,7 @@ SELECT CONCAT("php yii synchronizer/prices/one ",JSON_EXTRACT(apiya.api_model_pr
  LEFT JOIN `1019_yachtic2`.`apiConnections` AS apilocfrom ON CONCAT('{"id":',kp.location_from_id,'}') = apilocfrom.`model_primary_key_parsed` 
   AND apilocfrom.`api_model_name` = "LocationsApi" WHERE 1 = 1
   AND kp.days IN (7)
+  AND mp.days IN (7)
   AND DAYOFWEEK(kp.date) IN (7)
   AND ((kp.date >= STR_TO_DATE(CONCAT(YEAR(CURDATE()), '-04-01'), '%Y-%m-%d') 
   AND kp.date < STR_TO_DATE(CONCAT(YEAR(CURDATE()), '-11-01'), '%Y-%m-%d'))    OR (kp.date >= STR_TO_DATE(CONCAT(YEAR(CURDATE()) + 1, '-04-01'), '%Y-%m-%d') 
@@ -32,6 +33,7 @@ SELECT CONCAT("php yii synchronizer/prices/one ",JSON_EXTRACT(apiya.api_model_pr
   AND km.removedByApi = 0 
   AND `companies`.`status` = 10
   AND `companies`.`removedByApi` = 0 
+   AND `locations`.`status` = 10   AND `locations`.`removedByApi` = 0 
   AND abeon_permalinks.status = 10 
   AND my.cabins > 0
   AND my.servicetype <> "Cabin"
