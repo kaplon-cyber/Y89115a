@@ -3,8 +3,6 @@ SELECT CONCAT("php yii synchronizer/prices/one ",JSON_EXTRACT(apiya.api_model_pr
  LEFT JOIN 1019_yachtic2.prices AS kp ON kp.yacht_id = ky.id
  LEFT JOIN 1019_yachtic2.companies ON companies.id = ky.`company_id`
  LEFT JOIN 1019_yachtic2.locations ON locations.id = ky.location_id
- LEFT JOIN 1019_yachtic2.locations_translations ON `locations_translations`.record_id = locations.id 
-  AND locations_translations.language_id = 2
  LEFT JOIN 1019_yachtic2.abeon_permalinks ON abeon_permalinks.`model_id` = ky.id 
   AND abeon_permalinks.`model` = "yachts"
  LEFT JOIN 1019_yachtic2_stores_mmk.mmk_resources AS my ON CONCAT("mmk:",my.source_record_id) = ky.externalIdentity
